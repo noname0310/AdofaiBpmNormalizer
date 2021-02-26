@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using SimpleFileBrowser;
 using NoName.AdofaiLevelIO;
+using NoName.AdofaiLevelIO.Model.Actions;
+using EventType = NoName.AdofaiLevelIO.Model.Actions.EventType;
+using SetSpeed = NoName.AdofaiLevelIO.Model.Data.SetSpeed;
 
 // ReSharper disable All
 
@@ -26,17 +29,22 @@ public class UIManager : MonoBehaviour
     public Text EndInputFieldPlaceholder;
     public Text BPMInputFieldPlaceholder;
     public Text CustomPatternInputFieldPlaceholder;
+    public Button UseBPMMultiplierButton;
+    public Text UseBPMMultiplierButtonText;
 
     private AdofaiLevel _adofaiLevel;
     private string _levelInfo;
     private bool _dialogIsOpen;
+    private bool _useBPMMultiplier;
 
     private void Start()
     {
         _adofaiLevel = null;
         _levelInfo = null;
         _dialogIsOpen = false;
+        _useBPMMultiplier = true;
         ConsoleText.text = string.Empty;
+        UseBPMMultiplierButton.onClick.AddListener(OnMultiplierButtonButtonClicked);
         OpenLevelButton.onClick.AddListener(OnOpenLevelButtonClicked);
         RunButton.onClick.AddListener(OnRunButtonButtonClicked);
 
@@ -49,8 +57,41 @@ public class UIManager : MonoBehaviour
             RunButtonLabel.text = "실행";
             StartInputFieldPlaceholder.text = "정수 입력..";
             EndInputFieldPlaceholder.text = "정수 입력..";
-            BPMInputFieldPlaceholder.text = "소수 입력..";
+            BPMInputFieldPlaceholder.text = "소수 입력..\n(선택사항)";
             CustomPatternInputFieldPlaceholder.text = "e.g) 1, 2, 2, 1\n(선택사항)";
+            UseBPMMultiplierButtonText.text = "BPM Multiplier 사용";
+        }
+    }
+
+    private void OnMultiplierButtonButtonClicked()
+    {
+        if (_useBPMMultiplier)
+        {
+            _useBPMMultiplier = false;
+            if (Application.systemLanguage == SystemLanguage.Korean)
+            {
+                UseBPMMultiplierButtonText.text = "BPM 고정값 사용";
+                BPMInputFieldPlaceholder.text = "소수 입력..";
+            }
+            else
+            {
+                UseBPMMultiplierButtonText.text = "Use Const BPM Value";
+                BPMInputFieldPlaceholder.text = "Enter decimal...";
+            }
+        }
+        else
+        {
+            _useBPMMultiplier = true;
+            if (Application.systemLanguage == SystemLanguage.Korean)
+            {
+                UseBPMMultiplierButtonText.text = "승수 사용";
+                BPMInputFieldPlaceholder.text = "소수 입력..\n(선택사항)";
+            }
+            else
+            {
+                UseBPMMultiplierButtonText.text = "Use BPM Multiplier";
+                BPMInputFieldPlaceholder.text = "Enter decimal...\n(optional)";
+            }
         }
     }
 
@@ -111,8 +152,7 @@ public class UIManager : MonoBehaviour
         {
             if (_adofaiLevel != null
                 && int.TryParse(StartFloorInputField.text, out var startFloorResult) && 0 <= startFloorResult
-                && int.TryParse(EndFloorInputField.text, out var endFloorResult) && startFloorResult < endFloorResult
-                && float.TryParse(BPMInputField.text, out var bpmResult) && 0 < bpmResult)
+                && int.TryParse(EndFloorInputField.text, out var endFloorResult) && startFloorResult < endFloorResult)
             {
                 if (_adofaiLevel.Floors.Count <= endFloorResult)
                     endFloorResult = _adofaiLevel.Floors.Count - 1;
@@ -121,10 +161,40 @@ public class UIManager : MonoBehaviour
                 {
                     var parsedInts = CustomPatternInputField.text.Split(',').Select(item => { return int.Parse(item.Trim()); }).ToList();
 
-                    for (var i = startFloorResult; i < endFloorResult; i++)
+                    if (_useBPMMultiplier)
                     {
-                        var floor = _adofaiLevel.Floors[i];
-                        floor.Bpm = (float)(floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * (parsedInts[i % parsedInts.Count] * bpmResult));
+                        if (float.TryParse(BPMInputField.text, out var bpmResult) && 0 < bpmResult)
+                            _adofaiLevel.Floors[startFloorResult].Bpm = bpmResult;
+                        else
+                            bpmResult = _adofaiLevel.Floors[startFloorResult].Bpm;
+                        var currentbpm = (double)_adofaiLevel.Floors[startFloorResult].Bpm;
+
+                        for (var i = startFloorResult + 1; i < endFloorResult; i++)
+                        {
+                            var floor = _adofaiLevel.Floors[i];
+
+                            var constbpmvalue = floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * (parsedInts[i % parsedInts.Count] * bpmResult);
+                            if (Mathf.Approximately((float) constbpmvalue, (float)currentbpm) != true)
+                                floor.Actions.Add(new SetSpeed(SpeedType.Multiplier, (float)(constbpmvalue / currentbpm)));
+                            else
+                                floor.Actions.Remove(EventType.SetSpeed);
+                            currentbpm = constbpmvalue;
+                        }
+                    }
+                    else if (float.TryParse(BPMInputField.text, out var bpmResult) && 0 < bpmResult)
+                    {
+                        for (var i = startFloorResult; i < endFloorResult; i++)
+                        {
+                            var floor = _adofaiLevel.Floors[i];
+                            floor.Bpm = (float) (floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * (parsedInts[i % parsedInts.Count] * bpmResult));
+                        }
+                    }
+                    else
+                    {
+                        if (Application.systemLanguage == SystemLanguage.Korean)
+                            ConsoleText.text = _levelInfo + $"\n<color=red>입력값이 부족하거나 유효하지 않습니다.</color>";
+                        else
+                            ConsoleText.text = _levelInfo + "\n<color=red>Input value is not valid.</color>";
                     }
 
                     _adofaiLevel.SaveLevel();
@@ -137,10 +207,39 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    for (var i = startFloorResult; i < endFloorResult; i++)
+                    if (_useBPMMultiplier)
                     {
-                        var floor = _adofaiLevel.Floors[i];
-                        floor.Bpm = (float) (floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * bpmResult);
+                        if (float.TryParse(BPMInputField.text, out var bpmResult) && 0 < bpmResult)
+                            _adofaiLevel.Floors[startFloorResult].Bpm = bpmResult;
+                        else
+                            bpmResult = _adofaiLevel.Floors[startFloorResult].Bpm;
+                        var currentbpm = (double)_adofaiLevel.Floors[startFloorResult].Bpm;
+
+                        for (var i = startFloorResult + 1; i < endFloorResult; i++)
+                        {
+                            var floor = _adofaiLevel.Floors[i];
+                            var constbpmvalue = (float)(floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * bpmResult);
+                            if (Mathf.Approximately((float)constbpmvalue, (float)currentbpm) != true)
+                                floor.Actions.Add(new SetSpeed(SpeedType.Multiplier, (float)(constbpmvalue / currentbpm)));
+                            else
+                                floor.Actions.Remove(EventType.SetSpeed);
+                            currentbpm = constbpmvalue;
+                        }
+                    }
+                    else if (float.TryParse(BPMInputField.text, out var bpmResult) && 0 < bpmResult)
+                    {
+                        for (var i = startFloorResult; i < endFloorResult; i++)
+                        {
+                            var floor = _adofaiLevel.Floors[i];
+                            floor.Bpm = (float) (floor.RelativeAngle * 360.0 / (Math.PI * 2.0) / 180 * bpmResult);
+                        }
+                    }
+                    else
+                    {
+                        if (Application.systemLanguage == SystemLanguage.Korean)
+                            ConsoleText.text = _levelInfo + $"\n<color=red>입력값이 부족하거나 유효하지 않습니다.</color>";
+                        else
+                            ConsoleText.text = _levelInfo + "\n<color=red>Input value is not valid.</color>";
                     }
 
                     _adofaiLevel.SaveLevel();
