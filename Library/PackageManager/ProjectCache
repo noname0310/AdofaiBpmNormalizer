@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637498427330355972
-    m_Hash: 2838798205
+      ticks: 637499219162649359
+    m_Hash: 2921234292
   m_LockFileStatus:
     m_FilePath: D:/noname/Projects/GitHub/AdofaiBpmNormalizer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637498428717237285
-    m_Hash: 3198298308
+      ticks: 637499219169933112
+    m_Hash: 4108944914
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -1269,6 +1269,94 @@ m_PackageAssets:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.timeline.git
         revision: 2fe55e5d14362cc4fdcc886f56dbfe518298e4a5
+        path: 
+    - packageId: com.unity.toolchain.win-x86_64-linux-x86_64@0.1.19-preview
+      testable: 0
+      isDirectDependency: 1
+      version: 0.1.19-preview
+      source: 1
+      resolvedPath: D:\noname\Projects\GitHub\AdofaiBpmNormalizer\Library\PackageCache\com.unity.toolchain.win-x86_64-linux-x86_64@0.1.19-preview
+      assetPath: Packages/com.unity.toolchain.win-x86_64-linux-x86_64
+      name: com.unity.toolchain.win-x86_64-linux-x86_64
+      displayName: Toolchain Win Linux x64
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Cross-compilation toolchain to build player target Linux x86_64
+        on host Windows x86_64
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.4-preview
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        compatible:
+        - 0.1.4-preview
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        verified: 
+      dependencies:
+      - name: com.unity.sysroot
+        version: 0.1.19-preview
+      - name: com.unity.sysroot.linux-x86_64
+        version: 0.1.14-preview
+      resolvedDependencies:
+      - name: com.unity.sysroot
+        version: 0.1.19-preview
+      - name: com.unity.sysroot.linux-x86_64
+        version: 0.1.14-preview
+      keywords:
+      - toolchain
+      - windows
+      - linux
+      - cross-compilation
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637497549160000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 8717ab9c5b4f758bc542184e1872ed3fcce1e1f9
         path: 
     - packageId: com.unity.ugui@1.0.0
       testable: 0
@@ -3075,6 +3163,151 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
+    - packageId: com.unity.sysroot@0.1.19-preview
+      testable: 0
+      isDirectDependency: 0
+      version: 0.1.19-preview
+      source: 1
+      resolvedPath: D:\noname\Projects\GitHub\AdofaiBpmNormalizer\Library\PackageCache\com.unity.sysroot@0.1.19-preview
+      assetPath: Packages/com.unity.sysroot
+      name: com.unity.sysroot
+      displayName: Sysroot Base
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: This is the base sysroot package required by all sysroot and toolchain
+        packages
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        compatible:
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - unity
+      - linux
+      - sysroot
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637497460110000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 8717ab9c5b4f758bc542184e1872ed3fcce1e1f9
+        path: 
+    - packageId: com.unity.sysroot.linux-x86_64@0.1.14-preview
+      testable: 0
+      isDirectDependency: 0
+      version: 0.1.14-preview
+      source: 1
+      resolvedPath: D:\noname\Projects\GitHub\AdofaiBpmNormalizer\Library\PackageCache\com.unity.sysroot.linux-x86_64@0.1.14-preview
+      assetPath: Packages/com.unity.sysroot.linux-x86_64
+      name: com.unity.sysroot.linux-x86_64
+      displayName: Sysroot Linux x64
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Sysroot used to build unity player for linux x86_64
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        compatible:
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        verified: 
+      dependencies:
+      - name: com.unity.sysroot
+        version: 0.1.18-preview
+      resolvedDependencies:
+      - name: com.unity.sysroot
+        version: 0.1.19-preview
+      keywords:
+      - unity
+      - linux
+      - sysroot
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637460700410000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 0d5e7b07c95f3ae15d6d80931a071b042e97189b
+        path: 
     - packageId: com.unity.ext.nunit@1.0.6
       testable: 0
       isDirectDependency: 0
@@ -3096,8 +3329,18 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.9-preview
+        - 1.0.0
+        - 1.0.5
         - 1.0.6
         compatible:
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.9-preview
+        - 1.0.0
+        - 1.0.5
         - 1.0.6
         verified: 1.0.6
       dependencies: []
@@ -3118,7 +3361,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637429759280000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -3147,9 +3390,33 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 0.0.12-preview.2
+        - 0.0.12-preview.5
+        - 0.0.12-preview.8
+        - 0.0.12-preview.10
+        - 0.0.12-preview.11
+        - 0.0.12-preview.13
+        - 0.0.12-preview.17
+        - 0.0.12-preview.19
+        - 0.0.12-preview.20
+        - 1.0.0-preview.1
+        - 1.0.1
+        - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
         compatible:
+        - 0.0.12-preview.2
+        - 0.0.12-preview.5
+        - 0.0.12-preview.8
+        - 0.0.12-preview.10
+        - 0.0.12-preview.11
+        - 0.0.12-preview.13
+        - 0.0.12-preview.17
+        - 0.0.12-preview.19
+        - 0.0.12-preview.20
+        - 1.0.0-preview.1
+        - 1.0.1
+        - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
         verified: 1.2.1
@@ -3169,7 +3436,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 636984649280000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -3198,8 +3465,24 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 1.0.9-preview.1
+        - 1.0.9-preview.2
+        - 1.0.10-preview
+        - 1.0.11-preview.1
+        - 1.1.0-preview.1
+        - 1.1.0-preview.2
+        - 1.2.0-preview.1
+        - 2.0.1
+        - 2.0.2
+        - 2.1.0
+        - 3.0.0
+        - 3.0.1
+        - 4.0.0
+        - 4.0.1
         - 4.0.2
         - 4.0.3
+        - 5.0.0-pre.1
+        - 5.0.0-pre.2
         compatible:
         - 4.0.2
         - 4.0.3
@@ -3236,7 +3519,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637408843940000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -3265,7 +3548,22 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 1.0.0-preview.1
+        - 1.0.0-preview.4
+        - 2.0.1
+        - 2.0.2
+        - 2.0.3
+        - 2.0.4
+        - 2.0.5
+        - 2.0.6
+        - 2.1.0
+        - 3.0.0
+        - 3.0.1
+        - 3.0.2
+        - 4.0.0
         - 4.0.1
+        - 5.0.0-pre.1
+        - 5.0.0-pre.2
         compatible:
         - 4.0.1
         verified: 4.0.1
@@ -3286,7 +3584,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637328350450000000
       documentationUrl: 
       hasRepository: 1
       repository:
