@@ -730,13 +730,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SimpleFileBrowser.Runtime.csproj">
-      <Project>{FAA271AE-6CB6-EB42-E87C-47F08813791A}</Project>
-      <Name>SimpleFileBrowser.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="SimpleFileBrowser.Editor.csproj">
       <Project>{6C1E6640-488B-17B3-D3FA-018910772835}</Project>
       <Name>SimpleFileBrowser.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleFileBrowser.Runtime.csproj">
+      <Project>{FAA271AE-6CB6-EB42-E87C-47F08813791A}</Project>
+      <Name>SimpleFileBrowser.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
