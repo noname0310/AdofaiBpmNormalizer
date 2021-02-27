@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637499446422655034
+      ticks: 637499799073707396
     m_Hash: 3927870303
   m_LockFileStatus:
     m_FilePath: D:/noname/Projects/GitHub/AdofaiBpmNormalizer/AdofaiBpmNormalizer/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637499446436618210
+      ticks: 637499799081701433
     m_Hash: 3932950667
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
