@@ -331,7 +331,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 6b8abcda127cf31f0d80e7fe3f0f5450
+      Hash: 1a980b2f961252097f21b512eb4fa16f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
