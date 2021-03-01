@@ -5,7 +5,7 @@
 이 프로그램을 사용하면 자동으로 무변속 마법진, 패턴변속 마법진(e.g.폴리리듬 법진 ) 등을 생성할 수 있습니다.
 
 ### 다운로드
-[(windows)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.0.0/AdofaiBpmNormalizerWin.zip) [(linux)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.0.0/AdofaiBpmNormalizerLinux.zip) [(mac)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.0.0/AdofaiBpmNormalizerOsx.app.zip)
+[(windows)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.2.0/AdofaiBpmNormalizerWin.zip) [(linux)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.2.0/AdofaiBpmNormalizerLinux.zip) [(mac)](https://github.com/noname0310/AdofaiBpmNormalizer/releases/download/1.2.0/AdofaiBpmNormalizerOsx.app.zip)
 
 ### 사용방법
 
